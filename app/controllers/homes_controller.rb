@@ -3,6 +3,8 @@ class HomesController < ApplicationController
   end
 
   def index
+    @book = Book.all
+    @book_new = Book.new
   end
 
   

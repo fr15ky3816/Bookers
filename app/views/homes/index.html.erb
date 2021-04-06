@@ -1,2 +1,26 @@
-<h1></h1>
-<
+<h1>Books</h1>
+<div class="content" >
+    <div class="table-title" >
+        <div class="title">Title</div>
+        <div class="body">Body</div>
+        <div class="vecant"></div>
+    </div>
+    <div class="content-body">
+        <% @book.each do |book| %>
+            <div class="title"><%= book.title %></div>
+            <div class="body"><%= book.body %></div>
+            <%= link_to "Show", books_show_path(book) %>
+            <%= link_to "Edit", books_edit_path(book) %>
+            <%= link_to "Destroy", books_destroy(book), method:delete %>
+        <% end %>
+    </div>
+</div>
+<h2>New book</h2>
+<%= form_with model:@book_new, url:books_create_path, local:true do |f| %>
+    <P></P>
+    <%= f.text_field :title %>
+    <p></p>
+    <%= f.text_area :body %>
+    <%= f.submit 'Create Book' %>
+
+<% end %>
