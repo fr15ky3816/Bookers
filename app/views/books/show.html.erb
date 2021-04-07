@@ -4,3 +4,19 @@
 <%= link_to "Edit", books_edit_path %>
 <p>|</p>
 <%= link_to "Back", homes_index_path %>
+
+
+showページを表示したとき
+<p><strong>Title:</strong> <%= @book.title %> </p>
+に対して
+
+undefined method `title' for nil:NilClass
+
+と表示されます。
+コントローラーでも
+
+def show
+    @book = Book.find_by(id: params[:id])
+end
+と指定してありますし、どこが問題なのか分かりません。。
+
