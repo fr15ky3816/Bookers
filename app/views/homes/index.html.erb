@@ -11,15 +11,15 @@
             <div class="body"><%= book.body %></div>
             <%= link_to "Show", books_show_path(book) %>
             <%= link_to "Edit", books_edit_path(book) %>
-            <%= link_to "Destroy", books_destroy(book), method:delete %>
+            <%= link_to "Destroy", books_destroy_path(book), method:"delete" %>
         <% end %>
     </div>
 </div>
 <h2>New book</h2>
 <%= form_with model:@book_new, url:books_create_path, local:true do |f| %>
-    <P></P>
+    <P>Title</P>
     <%= f.text_field :title %>
-    <p></p>
+    <p>Body</p>
     <%= f.text_area :body %>
     <%= f.submit 'Create Book' %>
 
