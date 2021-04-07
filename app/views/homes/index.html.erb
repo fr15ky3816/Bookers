@@ -7,8 +7,8 @@
     </div>
     <div class="content-body">
         <% @book.each do |book| %>
-            <div class="title"><%= book.title %></div>
-            <div class="body"><%= book.body %></div>
+            <div class="content-title"><%= book.title %></div>
+            <div class="content-body"><%= book.body %></div>
             <%= link_to "Show", books_show_path(book) %>
             <%= link_to "Edit", books_edit_path(book) %>
             <%= link_to "Destroy", books_destroy_path(book), method:"delete" %>
