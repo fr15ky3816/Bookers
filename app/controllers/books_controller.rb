@@ -3,8 +3,12 @@ class BooksController < ApplicationController
 
   def create
     book = Book.new(book_params)
-    book.save
+    if book.save
+      flash[:notice] = "Book was succesfully created."
     redirect_to homes_index_path
+    else
+      render("homes/index")
+    end
   end
 
   def show
@@ -25,8 +29,13 @@ class BooksController < ApplicationController
 
   def destroy
     book = Book.find(params[:id])
-    book.destroy
-    redirect_to homes_index_path
+    if book.destroy
+      flash[:notice] = "Book was succesfully destroyed"
+      redirect_to homes_index_path
+    else
+      flash[:notice] = "Delete failed!"
+      render("homes/index")
+    end
   end
 
 

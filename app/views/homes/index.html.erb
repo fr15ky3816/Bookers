@@ -11,11 +11,16 @@
             <div class="content-body"><%= book.body %></div>
             <%= link_to "Show", book_path(book) %>
             <%= link_to "Edit", edit_book_path(book) %>
-            <%= link_to "Destroy", book_path(book), method:"delete" %>
+            <%= link_to "Destroy", book_path(book), method:"delete",
+                "data-confirm" => "Are you sure?" %>
         <% end %>
     </div>
 </div>
 <h2>New book</h2>
+<% @book_new.errors.full_messages.each do |message| %>
+    <%= message %>
+<% end %>
+
 <%= form_with model:@book_new, url:books_path, local:true do |f| %>
     <P>Title</P>
     <%= f.text_field :title %>
