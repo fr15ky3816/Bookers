@@ -1,24 +1,32 @@
 <h1>Books</h1>
 <table>
-    <div class="table-title" >
-        <div class="title">Title</div>
-        <div class="body">Body</div>
-        <div class="vecant"></div>
-    </div>
-    <div class="table-body">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Body</th>
+            <th></th>
+        </tr>
+    <thead>
+    <tbody>
+
         <% @book.each do |book| %>
-            <div class="content-title"><%= book.title %></div>
-            <div class="content-body"><%= book.body %></div>
-            <%= link_to "Show", book_path(book) %>
-            <%= link_to "Edit", edit_book_path(book) %>
-            <%= link_to "Destroy", book_path(book), method:"delete",
-                "data-confirm" => "Are you sure?" %>
+        <tr>
+            <td class="content-title"><%= book.title %></td>
+            <td class="content-body"><%= book.body %></td>
+            <td><%= link_to "Show", book_path(book) %></td>
+            <td><%= link_to "Edit", edit_book_path(book) %></td>
+            <td><%= link_to "Destroy", book_path(book), method:"delete",
+                "data-confirm" => "Are you sure?" %></td>
+        </tr>
         <% end %>
-    </div>
+
+    <tbody>
 </table>
 <h2>New book</h2>
 <% @book_new.errors.full_messages.each do |message| %>
-    <%= message %>
+    <div class="error-message">
+        <%= message %>
+    </div>
 <% end %>
 
 <%= form_with model:@book_new, url:books_path, local:true do |f| %>
