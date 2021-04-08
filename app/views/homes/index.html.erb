@@ -1,11 +1,11 @@
 <h1>Books</h1>
-<div class="content" >
+<table>
     <div class="table-title" >
         <div class="title">Title</div>
         <div class="body">Body</div>
         <div class="vecant"></div>
     </div>
-    <div class="content-body">
+    <div class="table-body">
         <% @book.each do |book| %>
             <div class="content-title"><%= book.title %></div>
             <div class="content-body"><%= book.body %></div>
@@ -15,7 +15,7 @@
                 "data-confirm" => "Are you sure?" %>
         <% end %>
     </div>
-</div>
+</table>
 <h2>New book</h2>
 <% @book_new.errors.full_messages.each do |message| %>
     <%= message %>
