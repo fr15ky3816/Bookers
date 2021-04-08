@@ -9,14 +9,14 @@
         <% @book.each do |book| %>
             <div class="content-title"><%= book.title %></div>
             <div class="content-body"><%= book.body %></div>
-            <%= link_to "Show", books_show_path(book) %>
-            <%= link_to "Edit", books_edit_path(book) %>
-            <%= link_to "Destroy", books_destroy_path(book), method:"delete" %>
+            <%= link_to "Show", book_path(book) %>
+            <%= link_to "Edit", edit_book_path(book) %>
+            <%= link_to "Destroy", book_path(book), method:"delete" %>
         <% end %>
     </div>
 </div>
 <h2>New book</h2>
-<%= form_with model:@book_new, url:books_create_path, local:true do |f| %>
+<%= form_with model:@book_new, url:books_path, local:true do |f| %>
     <P>Title</P>
     <%= f.text_field :title %>
     <p>Body</p>
