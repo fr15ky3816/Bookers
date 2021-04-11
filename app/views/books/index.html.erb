@@ -24,14 +24,20 @@
 </table>
 <h2>New book</h2>
 
-<%= render  "layouts/_error_messages" %>
+<%= render  'layouts/error_messages', book: @book_new  %>
 <%= form_with model:@book_new, url:books_path, local:true do |f| %>
 
-
-    <P>Title</P>
-    <%= f.text_field :title %>
-    <p>Body</p>
-    <%= f.text_area :body %>
+    <div class="field">
+        <P>Title</P>
+        <%= f.text_field :title %>
+    </div>
+    <div class="field">
+        <p>Body</p>
+        <%= f.text_area :body %>
+    </div>
     <%= f.submit 'Create Book' %>
 
 <% end %>
+
+
+
