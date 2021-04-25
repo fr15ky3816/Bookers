@@ -1,10 +1,8 @@
 class BooksController < ApplicationController
-
   def index
     @book = Book.all
     @book_new = Book.new
   end
-
 
   def create
     @book_new = Book.new(book_params)
@@ -19,12 +17,10 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find_by(id: params[:id])
-
   end
 
   def edit
     @book = Book.find_by(id: params[:id])
-
   end
 
   def update
@@ -51,10 +47,9 @@ class BooksController < ApplicationController
   def _error_messages
   end
 
-
   private
+
   def book_params
     params.require(:book).permit(:title, :body)
   end
 end
-

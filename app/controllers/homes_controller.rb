@@ -7,15 +7,8 @@ class HomesController < ApplicationController
     @book_new = Book.new
   end
 
+  private
 
-
-
-
-
-
-
-
-   private
   def book_params
     params.require(:book).permit(:title, :body)
   end
